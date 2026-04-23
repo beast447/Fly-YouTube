@@ -1,0 +1,177 @@
+/* ============================================================
+   FLY YOUTUBE — Design Tokens
+   All CSS custom properties for the design system.
+   ============================================================ */
+
+/* Inter — brand font (variable, local) */
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter-VariableFont_opsz_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter-Italic-VariableFont_opsz_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+:root {
+  /* ─── BRAND COLORS ──────────────────────────────────────── */
+
+  /* Midnight (deep cockpit / app canvas) */
+  --midnight-950: #04060d;
+  --midnight-900: #080c14;
+  --midnight-800: #0d1220;
+  --midnight-700: #131a2e;
+  --midnight-600: #1a2440;
+  --midnight-500: #243052;
+  --midnight-400: #344266;
+  --midnight-300: #4d5f88;
+  --midnight-200: #7080a8;
+  --midnight-100: #a0aec8;
+  --midnight-50: #d0d8ec;
+
+  /* Amber (instrument glow / primary accent) */
+  --amber-700: #8a3800;
+  --amber-600: #b85200;
+  --amber-500: #e06820;
+  --amber-400: #f07c38;
+  --amber-300: #f59a5a;
+  --amber-200: #fabb88;
+  --amber-100: #fddec8;
+  --amber-50: #fef4ec;
+
+  /* Horizon (sky blue / data / links) */
+  --horizon-700: #0d5a80;
+  --horizon-600: #1272a0;
+  --horizon-500: #1a8abf;
+  --horizon-400: #2aa8e0;
+  --horizon-300: #5ec3f0;
+  --horizon-200: #9adaf8;
+  --horizon-100: #d0eefb;
+  --horizon-50: #eaf7fd;
+
+  /* Gold (sunset / highlight / brand moments) */
+  --gold-600: #a06800;
+  --gold-500: #c88000;
+  --gold-400: #e09c18;
+  --gold-300: #f0ba40;
+  --gold-200: #f8d880;
+  --gold-100: #fcedb8;
+  --gold-50: #fef9e8;
+
+  /* ─── SEMANTIC COLORS ───────────────────────────────────── */
+  --color-success: #22c87a;
+  --color-success-dim: rgba(34, 200, 122, 0.15);
+  --color-warning: #f0a030;
+  --color-warning-dim: rgba(240, 160, 48, 0.15);
+  --color-danger: #e05048;
+  --color-danger-dim: rgba(224, 80, 72, 0.15);
+  --color-info: #2aa8e0;
+  --color-info-dim: rgba(42, 168, 224, 0.15);
+
+  /* ─── SURFACE SYSTEM ────────────────────────────────────── */
+  --surface-bg: var(--midnight-900);
+  --surface-base: var(--midnight-800);
+  --surface-raised: var(--midnight-700);
+  --surface-overlay: var(--midnight-600);
+  --surface-float: var(--midnight-500);
+
+  --glass-dark: rgba(13, 18, 32, 0.75);
+  --glass-mid: rgba(26, 36, 64, 0.65);
+  --glass-light: rgba(36, 48, 82, 0.55);
+  --glass-blur: blur(20px) saturate(160%);
+
+  /* ─── FOREGROUND / TEXT ─────────────────────────────────── */
+  --fg-primary: #f0eeea;
+  --fg-secondary: #a8afc4;
+  --fg-tertiary: #606880;
+  --fg-disabled: #404860;
+  --fg-inverse: #080c14;
+  --fg-accent: var(--amber-400);
+  --fg-link: var(--horizon-300);
+
+  /* ─── BORDER ────────────────────────────────────────────── */
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --border-default: rgba(255, 255, 255, 0.08);
+  --border-md: rgba(255, 255, 255, 0.12);
+  --border-strong: rgba(255, 255, 255, 0.18);
+  --border-accent: rgba(240, 124, 56, 0.45);
+  --border-focus: rgba(42, 168, 224, 0.60);
+
+  /* ─── SHADOWS / ELEVATION ───────────────────────────────── */
+  --shadow-flat: none;
+  --shadow-raised: 0 4px 16px rgba(0, 0, 0, 0.32), 0 1px 0 rgba(255, 255, 255, 0.04) inset;
+  --shadow-float: 0 16px 48px rgba(0, 0, 0, 0.52), 0 1px 0 rgba(255, 255, 255, 0.06) inset;
+  --shadow-glow-amber: 0 0 24px rgba(240, 124, 56, 0.38), 0 0 64px rgba(240, 124, 56, 0.12);
+  --shadow-glow-sky: 0 0 24px rgba(42, 168, 224, 0.32), 0 0 48px rgba(42, 168, 224, 0.10);
+
+  /* ─── CORNER RADIUS ─────────────────────────────────────── */
+  --r-xs: 4px;
+  --r-sm: 8px;
+  --r-md: 12px;
+  --r-lg: 16px;
+  --r-xl: 24px;
+  --r-2xl: 32px;
+  --r-full: 9999px;
+
+  /* ─── SPACING (8pt grid) ────────────────────────────────── */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+  --space-32: 128px;
+
+  /* ─── TYPOGRAPHY FAMILIES ───────────────────────────────── */
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* ─── TYPE SCALE ────────────────────────────────────────── */
+  --text-xs: 11px;
+  --text-sm: 13px;
+  --text-base: 15px;
+  --text-md: 17px;
+  --text-lg: 20px;
+  --text-xl: 24px;
+  --text-2xl: 30px;
+  --text-3xl: 38px;
+  --text-4xl: 48px;
+  --text-5xl: 64px;
+
+  /* ─── LINE HEIGHTS ──────────────────────────────────────── */
+  --leading-tight: 1.15;
+  --leading-snug: 1.3;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.7;
+
+  /* ─── LETTER SPACING ────────────────────────────────────── */
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0em;
+  --tracking-wide: 0.04em;
+  --tracking-wider: 0.08em;
+  --tracking-caps: 0.12em;
+
+  /* ─── ANIMATION ─────────────────────────────────────────── */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-expo: cubic-bezier(0.7, 0, 0.84, 0);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  --duration-micro: 150ms;
+  --duration-fast: 200ms;
+  --duration-base: 350ms;
+  --duration-slow: 500ms;
+  --duration-enter: 600ms;
+}

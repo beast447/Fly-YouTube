@@ -1,0 +1,38 @@
+export const CREATORS = [
+  {
+    id: 1,
+    name: 'Captain Joe',
+    handle: '@captainjoe',
+    routes: 127,
+    followers: '2.1M',
+    gradient: 'linear-gradient(135deg,#e06820,#f0ba40)',
+    following: true,
+  },
+  {
+    id: 2,
+    name: 'Mentour Pilot',
+    handle: '@mentourpilot',
+    routes: 89,
+    followers: '1.8M',
+    gradient: 'linear-gradient(135deg,#1a8abf,#22c87a)',
+    following: true,
+  },
+  {
+    id: 3,
+    name: 'Sam Chui',
+    handle: '@samchui',
+    routes: 64,
+    followers: '1.2M',
+    gradient: 'linear-gradient(135deg,#a06800,#e09c18)',
+    following: false,
+  },
+  {
+    id: 4,
+    name: 'Airforceproud95',
+    handle: '@afp95',
+    routes: 43,
+    followers: '890K',
+    gradient: 'linear-gradient(135deg,#344266,#5ec3f0)',
+    following: false,
+  },
+];

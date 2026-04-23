@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 56" fill="none">
+  
+  <rect x="2" y="2" width="52" height="52" rx="14" fill="#0d1220" stroke="rgba(255,255,255,0.10)" stroke-width="1"></rect>
+  
+  <path d="M20 17 L38 28 L20 39 Z" fill="#f07c38" opacity="0.15"></path>
+  
+  <path d="M15 28 L30 21 L38 28 L30 35 Z" fill="#f07c38" opacity="0.9"></path>
+  <path d="M28 23 L32 19 L35 22 L30 25 Z" fill="#f07c38"></path>
+  <path d="M28 33 L32 37 L35 34 L30 31 Z" fill="#f07c38"></path>
+  
+  <circle cx="37" cy="28" r="2.5" fill="#fac09a"></circle>
+  
+  <text x="66" y="22" font-family="&#39;Space Grotesk&#39;, sans-serif" font-size="13" font-weight="700" fill="#f0eeea" letter-spacing="-0.02em">FLY</text>
+  <text x="66" y="40" font-family="&#39;Space Grotesk&#39;, sans-serif" font-size="13" font-weight="500" fill="#f07c38" letter-spacing="0.01em">YOUTUBE</text>
+  
+  <line x1="88" y1="14" x2="88" y2="42" stroke="rgba(255,255,255,0.12)" stroke-width="1"></line>
+</svg>
