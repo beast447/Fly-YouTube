@@ -1,22 +1,16 @@
+import { useNavigate } from 'react-router-dom';
 import Icon from './Icon.jsx';
 import { FY, FONTS } from '../theme.js';
 
-export default function TopBar({ title, subtitle, onBack, rightSlot }) {
+export default function TopBar({ title, subtitle, back = false, rightSlot }) {
+  const navigate = useNavigate();
+
   return (
-    <div
-      style={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        padding: '12px 16px 10px',
-        flexShrink: 0,
-        borderBottom: `1px solid ${FY.border}`,
-      }}
-    >
+    <div className="fy-topbar">
       <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-        {onBack && (
+        {back && (
           <button
-            onClick={onBack}
+            onClick={() => navigate(-1)}
             style={{
               width: 32,
               height: 32,
@@ -28,6 +22,7 @@ export default function TopBar({ title, subtitle, onBack, rightSlot }) {
               alignItems: 'center',
               justifyContent: 'center',
               padding: 0,
+              flexShrink: 0,
             }}
           >
             <Icon d="M15 18l-6-6 6-6" size={16} color={FY.fg2} />
