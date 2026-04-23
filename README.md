@@ -8,7 +8,10 @@ Built on the Fly YouTube Design System (midnight cockpit palette, amber instrume
 
 ```bash
 npm install
-npm run dev       # http://localhost:5173
+cp .env.example .env
+npm run db:migrate
+npm run db:seed
+npm run dev:full   # Frontend: http://localhost:5173, API: http://localhost:4000
 ```
 
 ## Scripts
@@ -16,33 +19,35 @@ npm run dev       # http://localhost:5173
 | Command | What it does |
 | --- | --- |
 | `npm run dev` | Start the Vite dev server |
+| `npm run server:dev` | Start Express API with watch mode |
+| `npm run dev:full` | Run frontend + backend together |
+| `npm run db:migrate` | Apply PostgreSQL schema |
+| `npm run db:seed` | Seed demo creators/routes/user |
 | `npm run build` | Produce a production build into `dist/` |
 | `npm run preview` | Preview the production build locally |
 
 ## Project layout
 
 ```
-index.html              Vite entrypoint (fonts + <div id="root" />)
-public/
-  fonts/                Inter variable fonts (brand body type)
-  assets/               Logo SVGs + grain texture
-src/
-  main.jsx              React root
-  App.jsx               Tab + push-screen navigation
-  theme.js              Brand tokens mirrored to JS
-  styles/
-    tokens.css          CSS custom properties (colors, type, radii, shadows)
-    global.css          Phone shell, status bar, tab bar, screen transitions
-  components/           Badge, Avatar, RouteCard, CreatorRow, StatTile, TopBar, …
-  screens/              Dispatch, Browse, Logbook, Profile, RouteDetail, CreatorProfile
-  data/                 Mock routes, creators, logbook entries
+index.html
+src/                    React frontend
+server/
+  src/
+    app.js              Express app setup + middleware
+    routes/             Auth, creators, routes, flights, follows endpoints
+    db/                 SQL schema, migration, seed scripts
 ```
 
-## Screens
+## Demo credentials
 
-- **Dispatch** — Route of the week, feed from followed creators, suggested creators to monitor
-- **Browse** — Search routes or creators, filter by type
-- **Logbook** — Flight totals, rank progress, recent flights
-- **Profile** — Your identity, followed creators, settings
-- **Route Detail** — Full route briefing with "Load route in MSFS" CTA
-- **Creator Profile** — Creator bio, stats, filed routes
+- Email: `pilot@example.com`
+- Password: `pilotdemo123`
+
+
+## Testing
+
+```bash
+npm run test:backend
+```
+
+See `TESTING.md` for full setup and troubleshooting.
