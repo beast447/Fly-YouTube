@@ -1,0 +1,51 @@
+CREATE TABLE IF NOT EXISTS users (
+  id BIGSERIAL PRIMARY KEY,
+  email TEXT NOT NULL UNIQUE,
+  username TEXT NOT NULL,
+  password_hash TEXT NOT NULL,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS creators (
+  id BIGSERIAL PRIMARY KEY,
+  name TEXT NOT NULL,
+  handle TEXT NOT NULL UNIQUE,
+  followers TEXT NOT NULL,
+  gradient TEXT NOT NULL,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS routes (
+  id BIGSERIAL PRIMARY KEY,
+  creator_id BIGINT NOT NULL REFERENCES creators(id) ON DELETE CASCADE,
+  dep TEXT NOT NULL,
+  arr TEXT NOT NULL,
+  name TEXT NOT NULL,
+  duration TEXT NOT NULL,
+  distance TEXT NOT NULL,
+  altitude TEXT NOT NULL,
+  aircraft TEXT NOT NULL,
+  difficulty TEXT NOT NULL CHECK (difficulty IN ('smooth', 'turbulence', 'hard')),
+  pilots INTEGER NOT NULL DEFAULT 0,
+  is_new BOOLEAN NOT NULL DEFAULT FALSE,
+  gradient TEXT NOT NULL,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS flights (
+  id BIGSERIAL PRIMARY KEY,
+  user_id BIGINT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  route_id BIGINT NOT NULL REFERENCES routes(id) ON DELETE CASCADE,
+  date_label TEXT NOT NULL,
+  duration TEXT NOT NULL,
+  distance TEXT NOT NULL,
+  status TEXT NOT NULL CHECK (status IN ('complete', 'in_progress')),
+  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS follows (
+  user_id BIGINT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  creator_id BIGINT NOT NULL REFERENCES creators(id) ON DELETE CASCADE,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+  PRIMARY KEY (user_id, creator_id)
+);
