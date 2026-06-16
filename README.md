@@ -13,11 +13,17 @@ npm run dev       # http://localhost:5173
 
 ## Scripts
 
-| Command | What it does |
-| --- | --- |
-| `npm run dev` | Start the Vite dev server |
-| `npm run build` | Produce a production build into `dist/` |
-| `npm run preview` | Preview the production build locally |
+| Command                | What it does                             |
+| ---------------------- | ---------------------------------------- |
+| `npm run dev`          | Start the Vite dev server                |
+| `npm run build`        | Produce a production build into `dist/`  |
+| `npm run preview`      | Preview the production build locally     |
+| `npm run lint`         | Lint the codebase with ESLint            |
+| `npm run format`       | Format the codebase with Prettier        |
+| `npm run format:check` | Check formatting without writing changes |
+| `npm run type-check`   | Type-check with `tsc --noEmit`           |
+| `npm run test`         | Run the Vitest test suite once           |
+| `npm run test:watch`   | Run Vitest in watch mode                 |
 
 ## Project layout
 
@@ -27,14 +33,18 @@ public/
   fonts/                Inter variable fonts (brand body type)
   assets/               Logo SVGs + grain texture
 src/
-  main.jsx              React root
-  App.jsx               Tab + push-screen navigation
-  theme.js              Brand tokens mirrored to JS
+  main.tsx              React root
+  App.tsx               Router, code-split screens, error boundary
+  theme.ts              Brand tokens mirrored to JS
+  types/                Shared TypeScript interfaces (Route, Creator, Flight, …)
   styles/
     tokens.css          CSS custom properties (colors, type, radii, shadows)
-    global.css          Phone shell, status bar, tab bar, screen transitions
-  components/           Badge, Avatar, RouteCard, CreatorRow, StatTile, TopBar, …
-  screens/              Dispatch, Browse, Logbook, Profile, RouteDetail, CreatorProfile
+    global.css          Layout, skeleton shimmer, focus rings, skip link
+  components/           Badge, Avatar, RouteCard, CreatorRow, StatTile, TopBar, Skeletons, …
+  screens/              Dispatch, Browse, Logbook, Profile, RouteDetail, CreatorProfile, NotFound
+  context/              Global app state (follow/load) with localStorage persistence
+  hooks/                usePersistedState, useDebounce, usePageTitle
+  services/             Async data-access layer (API-ready, wraps mock data)
   data/                 Mock routes, creators, logbook entries
 ```
 
